@@ -1,0 +1,358 @@
+/* print.css that adapts certain pages of the site for print format (mainly resources, posts and roadmap) */
+@media print {
+
+    /* --- Globals and Resets --- */
+    html, body { 
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #ffffff !important; 
+    }
+
+    body {
+        /* Changes print font */
+        font-family: "Times New Roman", Times, serif;
+        /* Standard print size */
+        font-size: 12pt; 
+        color: #000000 !important;
+        /* Padding after reset */
+        padding: 2cm !important; 
+        width: auto !important;
+        overflow: visible !important;
+    }
+
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+        /* Ensure most text is black and backgrounds are transparent */
+        background-color: transparent !important;
+        color: #000000 !important;
+        /* Remove all rounded corners */
+        border-radius: 0 !important; 
+    }
+
+
+    /* --- Hide certain elements --- */
+    .site-header,
+    .skip-link,
+    .hamburger-toggle,
+    .fab-sidebar-button,
+    .site-footer,
+    .video-container,
+    img + p,
+    iframe,
+    aside { 
+        display: none !important;
+    }
+
+    /* --- Links --- */
+    a {
+        color: #000000 !important;
+        text-decoration: underline !important;
+    }
+
+    /* Show the links when external links, but not for internal links */
+    a[href^="http://"]::after,
+    a[href^="https://"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        font-weight: normal;
+        word-break: break-all;
+    }
+    a[href^="#"]::after,
+    a[href^="../"]::after,
+    a[href^="./"]::after,
+    a[href^="../../"]::after, 
+    .sidebar-nav a::after, 
+    .breadcrumbs a::after,
+    .glossary a::after {
+        content: "" !important;
+    }
+
+
+    /* --- Layout adjustments --- */
+    .container.main {
+        margin: 0 !important;
+        padding: 0 !important; 
+        max-width: none !important;
+    }
+
+    main#main-content {
+        min-width: auto !important;
+        margin: 0 !important; 
+        padding: 0 !important; 
+    }
+
+    .page-with-sidebar {
+        display: block !important;
+        gap: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    /* --- Headings and text stuffz --- */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+        margin-top: 1.2em;
+        margin-bottom: 0.4em;
+    }
+    h1 { font-size: 22pt; }
+    h2 { font-size: 18pt; }
+    h3 { font-size: 14pt; }
+
+    p, ul, ol, li, blockquote {
+        page-break-inside: avoid !important;
+        widows: 3;
+        orphans: 3;
+    }
+
+    blockquote {
+        border-left: 3px solid #555555 !important;
+        padding-left: 1em !important;
+        margin-left: 0 !important;
+        font-style: italic;
+        font-size: 11pt;
+    }
+    blockquote br { 
+        content: "" !important;
+        display: block !important;
+        margin-bottom: 0.5em !important;
+    }
+
+
+    /* --- Images --- */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        page-break-inside: avoid !important;
+        border: 1px solid #cccccc !important;
+        margin-top: 0.5em !important;
+        margin-bottom: 0.5em !important;
+        /* Remove any masks */
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+    }
+    /* For banner images on non-post pages */
+    img.banner-image {
+        max-height: 150px !important;
+        object-fit: cover !important;
+        width: 100% !important;
+        margin-top: 0 !important;
+        margin-bottom: 1em !important;
+    }
+
+    /* For the main image on a blog post page */
+    img.post-image {
+        max-height: 200px !important;
+        object-fit: cover !important;
+        width: 100% !important;
+        margin-top: 0 !important; 
+        margin-bottom: 1em !important;
+    }
+    .responsive-image.content-image {
+        margin-top: 1em !important;
+        margin-bottom: 1em !important;
+    }
+
+
+    /* --- Breadcrumbs --- */
+    .breadcrumbs {
+        padding: 0 0 0.5em 0 !important;
+        font-size: 10pt !important;
+        border-bottom: 1px solid #cccccc !important;
+        margin-top: 0 !important; 
+        margin-bottom: 1em !important;
+    }
+
+    .breadcrumbs ol, .breadcrumbs li {
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        display: inline !important;
+    }
+    .breadcrumbs li + li::before {
+        content: ' > ' !important;
+        padding: 0 0.3em !important;
+        color: #333333 !important;
+    }
+    .breadcrumbs li[aria-current="page"] {
+        font-weight: normal !important;
+    }
+
+
+    /* --- Sections and wrappers --- */
+    section {
+        margin-top: 1em !important; 
+        padding: 0 !important; 
+    }
+    section.first {
+        margin-top: 0 !important;
+    }
+
+    .background-wrapper {
+        border: none !important;
+        padding: 0 !important;
+        margin: 0.5em 0 !important;
+        page-break-inside: auto !important; 
+    }
+
+
+    /* --- Tables --- */
+    .table-scroll-wrapper {
+        overflow-x: visible !important;
+        width: 100% !important;
+    }
+    .comparison-table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        margin-bottom: 1em !important;
+        font-size: 10pt !important;
+        page-break-inside: avoid !important;
+    }
+    .comparison-table th,
+    .comparison-table td {
+        border: 1px solid #999999 !important;
+        padding: 5px !important;
+        text-align: left !important;
+        vertical-align: top;
+    }
+    .comparison-table th {
+        background-color: #eeeeee !important;
+        font-weight: bold;
+    }
+    .comparison-table tbody tr:nth-child(odd),
+    .comparison-table tbody tr:nth-child(even) {
+        background-color: #ffffff !important;
+    }
+
+    /* --- Accordions --- */
+    .accordion-container {
+        margin: 1em 0 !important;
+    }
+    .accordion-item {
+        page-break-inside: avoid !important;
+        margin-bottom: 0.5em;
+    }
+    .accordion-item h3 { 
+        font-size: 13pt !important;
+        font-weight: bold !important;
+        margin-top: 0.5em !important;
+        margin-bottom: 0.2em !important;
+        padding: 0 !important;
+        border: none !important;
+    }
+    .accordion-trigger { 
+        display: inline !important;
+        padding: 0 !important;
+        border: none !important;
+        background: none !important;
+        color: inherit !important;
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        text-align: left !important;
+        cursor: default !important;
+        width: auto !important; 
+    }
+    .accordion-trigger::before { 
+        /* Hide arrow icon */
+        display: none !important;
+    }
+    .accordion-panel {
+        /* Expand panel fully */
+        max-height: none !important; 
+        visibility: visible !important;
+        overflow: visible !important;
+        padding: 0 0 0.5em 1em !important; 
+        border: none !important;
+        margin-top: 0.2em;
+    }
+    .accordion-panel.is-open {
+        border: none !important;
+    }
+    .accordion-panel ul, .accordion-panel p {
+        margin-bottom: 0.5em;
+    }
+    .accordion-panel li {
+        margin-bottom: 0.2em;
+    }
+
+
+    /* --- Blog post styles --- */
+    article.blog-post {
+        padding: 0 !important; 
+        margin: 0 !important; 
+        border: none !important; 
+        position: static !important; 
+        z-index: auto !important;
+        box-shadow: none !important; 
+    }
+
+    .post-header {
+        margin-bottom: 1em !important;
+        padding-bottom: 0.5em !important;
+        border-bottom: 1px solid #aaaaaa !important;
+        margin-top: 0 !important; 
+    }
+
+    #post-title {
+        font-size: 20pt !important;
+        line-height: 1.2 !important;
+        margin-top: 0 !important; 
+        margin-bottom: 0.25em !important;
+    }
+
+    .post-meta {
+        font-size: 10pt !important;
+        color: #333333 !important;
+        margin-top: 0 !important;
+        margin-bottom: 1em !important;
+    }
+
+    .post-content h2 {
+        font-size: 16pt !important;
+        margin-top: 1em !important;
+        margin-bottom: 0.3em !important;
+    }
+
+    .post-content ul, .post-content ol {
+        margin-bottom: 0.8em !important;
+        padding-left: 25px !important;
+    }
+    .post-content ul {
+        list-style-type: disc !important;
+    }
+    .post-content ol {
+        list-style-type: decimal !important;
+    }
+
+    .post-content li {
+        margin-bottom: 0.3em !important;
+    }
+
+    /* Glossary specific styling */
+    .post-content ul.glossary {
+        list-style-type: none !important; 
+        padding-left: 0 !important; 
+        margin-top: 0.5em;
+    }
+    .post-content ul.glossary li {
+        margin-bottom: 0.2em !important;
+    }
+    .post-content ul.glossary a {
+        text-decoration: none !important;
+    }
+    .post-content ul.glossary a strong {
+        font-weight: bold !important;
+    }
+
+    /* Sources section */
+    .post-content h2 + ul:last-of-type { 
+        list-style-type: none !important;
+        padding-left: 0 !important;
+    }
+    .post-content h2 + ul:last-of-type li a::after {
+        /* Ensure source links are shown */
+        content: " (" attr(href) ")" !important; 
+        font-size: 0.8em;
+    }
+
+}
