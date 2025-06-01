@@ -1,33 +1,34 @@
 /* print.css that adapts certain pages of the site for print format (mainly resources, posts and roadmap) */
 @media print {
 
-    /* --- Globals and Resets --- */
-    html, body { 
+    /* --- Globals and resets --- */
+    html, body {
         margin: 0 !important;
         padding: 0 !important;
-        background-color: #ffffff !important; 
     }
 
     body {
         /* Changes print font */
         font-family: "Times New Roman", Times, serif;
         /* Standard print size */
-        font-size: 12pt; 
-        color: #000000 !important;
-        /* Padding after reset */
-        padding: 2cm !important; 
+        font-size: 12pt;
+        /* Ensure base text is black */
+        color: #000000 !important; 
+        /* Ensure base background is white */
+        background-color: #ffffff !important;
+        /* Padding after reset, defines print margins */
+        padding: 2cm !important;
         width: auto !important;
         overflow: visible !important;
     }
 
     * {
+        /* Ensure backgrounds from screen styles don't print, unless overridden by more specific rules (for example table headers) */
+        background-color: transparent !important;
+        /* Remove border radius, box shadow and text-shadows for the widgets in the about page */
         box-shadow: none !important;
         text-shadow: none !important;
-        /* Ensure most text is black and backgrounds are transparent */
-        background-color: transparent !important;
-        color: #000000 !important;
-        /* Remove all rounded corners */
-        border-radius: 0 !important; 
+        border-radius: 0 !important;
     }
 
 
@@ -40,17 +41,18 @@
     .video-container,
     img + p,
     iframe,
-    aside { 
+    aside {
         display: none !important;
     }
 
     /* --- Links --- */
     a {
-        color: #000000 !important;
+        /* Ensure links are black for print */
+        color: #000000 !important; 
         text-decoration: underline !important;
     }
 
-    /* Show the links when external links, but not for internal links */
+    /* Show the URLs for external links, but not for internal/fragment links */
     a[href^="http://"]::after,
     a[href^="https://"]::after {
         content: " (" attr(href) ")";
@@ -58,28 +60,29 @@
         font-weight: normal;
         word-break: break-all;
     }
+    /* Do not show URLs for these specific links */
     a[href^="#"]::after,
     a[href^="../"]::after,
     a[href^="./"]::after,
-    a[href^="../../"]::after, 
-    .sidebar-nav a::after, 
+    a[href^="../../"]::after,
+    .sidebar-nav a::after,
     .breadcrumbs a::after,
     .glossary a::after {
-        content: "" !important;
+        content: "" !important; 
     }
 
 
     /* --- Layout adjustments --- */
     .container.main {
         margin: 0 !important;
-        padding: 0 !important; 
+        padding: 0 !important;
         max-width: none !important;
     }
 
     main#main-content {
         min-width: auto !important;
-        margin: 0 !important; 
-        padding: 0 !important; 
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .page-with-sidebar {
@@ -112,6 +115,7 @@
         font-style: italic;
         font-size: 11pt;
     }
+    /* Specific styling for line breaks within blockquotes */
     blockquote br { 
         content: "" !important;
         display: block !important;
@@ -124,10 +128,11 @@
         max-width: 100% !important;
         height: auto !important;
         page-break-inside: avoid !important;
+        /* Simple border for definition on white paper */
         border: 1px solid #cccccc !important;
         margin-top: 0.5em !important;
         margin-bottom: 0.5em !important;
-        /* Remove any masks */
+        /* Remove any masks that might interfere with print */
         -webkit-mask-image: none !important;
         mask-image: none !important;
     }
@@ -145,7 +150,7 @@
         max-height: 200px !important;
         object-fit: cover !important;
         width: 100% !important;
-        margin-top: 0 !important; 
+        margin-top: 0 !important;
         margin-bottom: 1em !important;
     }
     .responsive-image.content-image {
@@ -159,7 +164,7 @@
         padding: 0 0 0.5em 0 !important;
         font-size: 10pt !important;
         border-bottom: 1px solid #cccccc !important;
-        margin-top: 0 !important; 
+        margin-top: 0 !important;
         margin-bottom: 1em !important;
     }
 
@@ -181,18 +186,17 @@
 
     /* --- Sections and wrappers --- */
     section {
-        margin-top: 1em !important; 
-        padding: 0 !important; 
+        margin-top: 1em !important;
+        padding: 0 !important;
     }
     section.first {
         margin-top: 0 !important;
     }
 
-    .background-wrapper {
+    .background-wrapper { 
         border: none !important;
         padding: 0 !important;
         margin: 0.5em 0 !important;
-        page-break-inside: auto !important; 
     }
 
 
@@ -216,15 +220,13 @@
         vertical-align: top;
     }
     .comparison-table th {
-        background-color: #eeeeee !important;
+        /* Light grey background for headers */
+        background-color: #eeeeee !important; 
         font-weight: bold;
-    }
-    .comparison-table tbody tr:nth-child(odd),
-    .comparison-table tbody tr:nth-child(even) {
-        background-color: #ffffff !important;
     }
 
     /* --- Accordions --- */
+    /* Expand all accordions for print */
     .accordion-container {
         margin: 1em 0 !important;
     }
@@ -232,7 +234,7 @@
         page-break-inside: avoid !important;
         margin-bottom: 0.5em;
     }
-    .accordion-item h3 { 
+    .accordion-item h3 {
         font-size: 13pt !important;
         font-weight: bold !important;
         margin-top: 0.5em !important;
@@ -240,6 +242,7 @@
         padding: 0 !important;
         border: none !important;
     }
+    /* Make trigger look like normal text, not a button */
     .accordion-trigger { 
         display: inline !important;
         padding: 0 !important;
@@ -250,22 +253,24 @@
         font-weight: inherit !important;
         text-align: left !important;
         cursor: default !important;
-        width: auto !important; 
+        width: auto !important;
     }
-    .accordion-trigger::before { 
+    .accordion-trigger::before {
         /* Hide arrow icon */
         display: none !important;
     }
     .accordion-panel {
         /* Expand panel fully */
-        max-height: none !important; 
+        max-height: none !important;
         visibility: visible !important;
         overflow: visible !important;
+        /* Indent content slightly */
         padding: 0 0 0.5em 1em !important; 
         border: none !important;
         margin-top: 0.2em;
     }
-    .accordion-panel.is-open {
+    /* Remove any special borders for open state from screen */
+    .accordion-panel.is-open { 
         border: none !important;
     }
     .accordion-panel ul, .accordion-panel p {
@@ -278,31 +283,31 @@
 
     /* --- Blog post styles --- */
     article.blog-post {
-        padding: 0 !important; 
-        margin: 0 !important; 
-        border: none !important; 
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
         position: static !important; 
         z-index: auto !important;
-        box-shadow: none !important; 
     }
 
     .post-header {
         margin-bottom: 1em !important;
         padding-bottom: 0.5em !important;
         border-bottom: 1px solid #aaaaaa !important;
-        margin-top: 0 !important; 
+        margin-top: 0 !important;
     }
 
     #post-title {
         font-size: 20pt !important;
         line-height: 1.2 !important;
-        margin-top: 0 !important; 
+        margin-top: 0 !important;
         margin-bottom: 0.25em !important;
     }
 
     .post-meta {
         font-size: 10pt !important;
-        color: #333333 !important;
+        /* Slightly lighter than pure black for less emphasis */
+        color: #333333 !important; 
         margin-top: 0 !important;
         margin-bottom: 1em !important;
     }
@@ -330,8 +335,8 @@
 
     /* Glossary specific styling */
     .post-content ul.glossary {
-        list-style-type: none !important; 
-        padding-left: 0 !important; 
+        list-style-type: none !important;
+        padding-left: 0 !important;
         margin-top: 0.5em;
     }
     .post-content ul.glossary li {
@@ -343,16 +348,4 @@
     .post-content ul.glossary a strong {
         font-weight: bold !important;
     }
-
-    /* Sources section */
-    .post-content h2 + ul:last-of-type { 
-        list-style-type: none !important;
-        padding-left: 0 !important;
-    }
-    .post-content h2 + ul:last-of-type li a::after {
-        /* Ensure source links are shown */
-        content: " (" attr(href) ")" !important; 
-        font-size: 0.8em;
-    }
-
 }
