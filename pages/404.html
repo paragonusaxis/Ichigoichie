@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Page head elements... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Ichigoichie - 404</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <!-- Site header -->
+    <header class="site-header" id="site-header">
+
+        <div class="container header-content">
+
+            <!-- This allows users to tab into this hidden element when arriving into the page, because its focusable. This can be used to allow the user to skip to the main content directly and it is a form of assistive tool. -->
+            <a href="#main-content" class="skip-link">Skip to main content</a>
+
+            <!-- Site title -->
+            <div class="site-title"><a href="../index.html">一期一会</a></div>
+
+            <!-- Hamburger menu for mobile-->
+            <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation-list">
+                <span class="hamburger-icon"></span>
+            </button>
+
+            <!-- Nav menu, collapses on mobile -->
+            <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+                <ul class="nav-list" id="main-navigation-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./posts/index.html">Blog</a></li>
+                    <li><a href="./resources.html">Resources</a></li>
+                    <li><a href="./roadmap.html">Roadmap</a></li>
+                    <li><a href="./about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content container -->
+    <div class="container main">
+        <!-- Breadcrumbs navigation / fil d'ariane -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs">
+            <ol>
+                <li><a href="../index.html">Home</a></li>
+                <li aria-current="page">404</li>
+            </ol>
+        </nav>
+
+        <!-- Main content -->
+        <main id="main-content">
+
+            <!-- 404 page for when a page is not found -->
+            <div class="flex-center">
+                <h1 class="big-header">404</h1>
+                <p>Page not found... would you like to go back to the <a href="../index.html">landing page</a>?</p>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                May 2025 / Ichigoichie.
+                <br> This site was created by Rocco Cavenaghi for the "Publication Web" course at HEG-Genève, as a project to learn web development. Taught by Professor Alexandre Boder with assistance from Adrian Valente. For full credits and references,
+                see the <a href="./about.html">about page</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script(s), etc -->
+    <script src="../script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Page head elements... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Ichigoichie - About</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <!-- Site header -->
+    <header class="site-header" id="site-header">
+
+        <div class="container header-content">
+
+            <!-- This allows users to tab into this hidden element when arriving into the page, because its focusable. This can be used to allow the user to skip to the main content directly and it is a form of assistive tool. -->
+            <a href="#main-content" class="skip-link">Skip to main content</a>
+
+            <!-- Site title -->
+            <div class="site-title"><a href="../index.html">一期一会</a></div>
+
+            <!-- Hamburger menu for mobile-->
+            <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation-list">
+                <span class="hamburger-icon"></span>
+            </button>
+
+            <!-- Nav menu, collapses on mobile -->
+            <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+                <ul class="nav-list" id="main-navigation-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./posts/index.html">Blog</a></li>
+                    <li><a href="./resources.html">Resources</a></li>
+                    <li><a href="./roadmap.html">Roadmap</a></li>
+                    <li><a href="#" aria-current="page">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content container -->
+    <div class="container main">
+        <!-- Breadcrumbs navigation / fil d'ariane -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs">
+            <ol>
+                <li><a href="../index.html">Home</a></li>
+                <li aria-current="page">About</li>
+            </ol>
+        </nav>
+
+        <!-- Main content -->
+        <main id="main-content">
+
+            <!-- This is the about page -->
+
+            <!-- About this site -->
+            <h1>About</h1>
+            <section class="first" aria-labelledby="about-title">
+                <div class="background-wrapper box-shadow">
+                    <h2 id="about-title">About the Project</h2>
+                    <p>The name 'Ichigoichie' (一期一会) is a Japanese concept that translates to "one time, one meeting" or "for this time only." It emphasizes the unique, unrepeatable nature of a moment. I chose this name because learning a language, especially
+                        Japanese, is a personal journey filled with unique challenges, discoveries, and moments of understanding.</p>
+
+                    <p>This mini-blog was born from my own experiences learning Japanese. I've always been fascinated by the language, partly due to enjoying Japanese media like manga, anime, and video games since I was young. However, my attempts to learn
+                        were often met with frustration due to the language's complexity or a lack of clear progress. I also found that while the learning community is often enthusiastic and helpful, it can sometimes feel a bit overwhelming with too much
+                        information or being too strict about "correct" learning methods, which can be discouraging for beginners.</p>
+
+                    <p>So, this site is my response. My goal is not just to gather resources and avoid information overload, but also to honestly document my own learning path. I want to share the real challenges, like managing motivation, avoiding burnout,
+                        building discipline, and adapting my studies to a busy schedule. The idea is to show how I'm moving from recurring frustration to steady, satisfying progress at a pace that works for me.</p>
+
+                    <p><strong>The main objectives of this site are to:</strong></p>
+                    <ul>
+                        <li><strong>Centralize learning resources:</strong> To collect and maintain a selection of useful resources (books, apps, websites, etc.) for studying Japanese, all in one place.</li>
+                        <li><strong>Share a personal experience:</strong> To document my learning journey through blog posts (like journal entries, resource reviews, and reflections) to inspire and inform other learners.</li>
+                        <li><strong>Offer a structured guide:</strong> To provide a "Roadmap" to help beginners and intermediate learners navigate the key stages of learning Japanese (Kana, Grammar, Vocabulary, Immersion).</li>
+                        <li><strong>Visualize my personal progression:</strong> To use this site as a tool to track and see my own progress in learning Japanese.</li>
+                        <li><strong>Engage with fellow learners:</strong> To offer simple interactive elements and interesting blog posts to encourage regular visits.</li>
+                    </ul>
+
+                    <p>This project is aimed at anyone learning Japanese, no matter their current level, who is looking for resources, advice, or motivation. The content will be in English to make it accessible to a broad international audience. It's especially
+                        for those who appreciate personal experiences and a structured, yet flexible, approach to learning.</p>
+
+                    <p>I hope that by sharing my journey, this site might help or inspire other learners facing similar difficulties.</p>
+                </div>
+            </section>
+
+            <!-- About Me section -->
+            <section aria-labelledby="about-me-title">
+                <div class="two-columns">
+                    <div class="about-me-image-container flex-center">
+                        <img src="../images/avatar.jpeg" alt="A photo of an avatar representing the site creator, Rocco Cavenaghi" class="about-me-photo box-shadow">
+                        <p>Image by myself</p>
+                    </div>
+                    <div class="about-me-text background-wrapper violet box-shadow">
+                        <h2 id="about-me-title">About Me</h2>
+                        <p>こんにちは! I'm Rocco, the person behind this Japanese learning blog. I'm 27 years old, originally from Brazil, and currently living in Switzerland. I've always loved learning languages; Japanese is actually my fourth, after my native
+                            Portuguese, English, and French. When I'm not wrestling with kanji or grammar, you can usually find me reading a good book, playing video games, or dreaming about cats (I really like cats!).</p>
+
+                        <p>This blog is a way for me to share my journey as I dive deeper into Japanese. My big goal right now is to hopefully attend an intensive Japanese learning summer course in Japan during the summer of 2026. Until then, I'll be here,
+                            learning and sharing. As a non-binary person, I'm also keen on creating a welcoming space for everyone interested in Japanese.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Progress section -->
+            <section aria-labelledby="learning-progress-title">
+                <h2 id="learning-progress-title">My Learning Progress</h2>
+                <p>This section is a small snapshot of my current progress in Japanese. It helps me visualize how far I've come and what's next!</p>
+                <div class="progress-widgets-container">
+                    <!-- Kanji Progress Widget -->
+                    <div class="progress-widget box-shadow">
+                        <h3>Kanji Learned</h3>
+                        <p class="progress-status"><strong>Status:</strong> <span id="kanji-count">608</span> / <span id="kanji-goal">2.136</span> Jōyō kanji</p>
+                        <div class="progress-bar-container">
+                            <div id="kanji-progress-bar" class="progress-bar" style="width: 28%;">
+                                <span class="progress-bar-text">28%</span>
+                            </div>
+                        </div>
+                        <p class="progress-note">Currently learning kanji through WaniKani.</p>
+                    </div>
+
+                    <!-- Vocabulary Progress Widget -->
+                    <div class="progress-widget grey box-shadow">
+                        <h3>Vocabulary Acquired</h3>
+                        <p class="progress-status"><strong>Status:</strong> <span id="vocab-count">1867</span> / <span id="vocab-goal">6.000</span> Total WaniKani vocab</p>
+                        <div class="progress-bar-container">
+                            <div id="vocab-progress-bar" class="progress-bar" style="width: 30%;">
+                                <span class="progress-bar-text">30%</span>
+                            </div>
+                        </div>
+                        <p class="progress-note">I also cram vocab with Anki but that is harder to track...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Me section -->
+            <section aria-labelledby="contact-form-title">
+                <div class="background-wrapper box-shadow contact-form-container">
+                    <h2 id="contact-form-title">Send Me a Message</h2>
+                    <p>Have a question, suggestion, or just want to say hi? Fill out the form below. I'll do my best to get back to you!</p>
+                    <form id="contact-form" action="#" method="POST">
+                        <!-- The form action is nothing because there is no server for this, but this would ideally point to the server script that handles the form submission and then sends the mail -->
+                        <div class="form-group">
+                            <label for="contact-name">Your Name:</label>
+                            <input type="text" id="contact-name" name="name" required placeholder="e.g., John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-email">Your Email:</label>
+                            <input type="email" id="contact-email" name="email" required placeholder="e.g., john.doe@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-message">Message:</label>
+                            <textarea id="contact-message" name="message" rows="6" required placeholder="Your message here..."></textarea>
+                        </div>
+
+                        <div class="form-group form-submit-group">
+                            <button type="submit" class="button accent">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Credits section -->
+            <section aria-labelledby="credits-title">
+                <h2 id="credits-title">Credits & Acknowledgements</h2>
+                <div class="background-wrapper box-shadow credits-list">
+                    <p>This project, "Ichigoichie," has been developed as part of the 7T2-TIA-1 Publication Web course at "HEG-Genève. Below you can find general sources and credits to external resources used in this creation of this site. Credit and sources of specific resources (for example blog posts) can be found in the specific page the resource appeared on. If you notice any omissions or errors, please feel free to reach out.</p>
+
+                    <h3>Webpages</h3>
+
+                    <p>
+                        AHLSTRÖM, Kim, 2025. <em>Jisho</em> [online]. Retrieved from: <a href="https://jisho.org/about/" target="_blank">https://jisho.org/about/</a> [accessed 01 June 2025].
+                    </p>
+
+                    <p>
+                        CONFÉDÉRATION SUISSE, 2023. <em>Federal Act on Copyright and Related Rights</em> [online]. Retrieved from: <a href="https://www.fedlex.admin.ch/eli/cc/1993/1798_1798_1798/en#a25" target="_blank">https://jisho.org/about/</a> [accessed
+                        01 June 2025].
+                    </p>
+
+                    <p>
+                        TOFUGU, 2025. <em>Japanese Grammar</em> [online]. Retrieved from: <a href="https://www.tofugu.com/japanese-grammar/" target="_blank">https://www.tofugu.com/japanese-grammar/</a> [accessed 01 June 2025].
+                    </p>
+
+                    <p>
+                        IMABI, 2025. <em>Imabi: Guided Japanese Mastery</em> [online]. Retrieved from: <a href="https://imabi.org/" target="_blank">https://imabi.org/</a> [accessed 01 June 2025].
+                    </p>
+
+                    <p>
+                        REFSNES DATA, 2025. <em>W3Schools</em> [online]. Retrieved from: <a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a> [accessed 01 June 2025].
+                    </p>
+
+                    <p>
+                        WORLD WIDE WEB CONSORTIUM, 2024. <em>Web Content Accessibility Guidelines (WCAG) 2.1.</em> World Wide Web Consortium [online]. 12 December 2024. Retrieved from: <a href="https://www.w3.org/TR/WCAG21/">https://www.w3.org/TR/WCAG21/</a>                        [accessed 26 April 2025].
+                    </p>
+
+                    <p>
+                        FRIEND, Nathan, 2025. <em>Tree</em> [online]. Retrieved at: <a href="https://tree.nathanfriend.com/">https://tree.nathanfriend.com/</a> [accessed 26 April 2025].
+                    </p>
+
+                    <hr>
+
+                    <h3>Images</h3>
+                    <p>Most images used on this site have been sourced from <a href="pixabay.com">Pixabay.com</a>. Pixabay offers a library of images that are free to use for both commercial and non-commercial purposes without requiring attribution, under the Pixabay License. When possible, images used throughout the site include a caption directly beneath or near them with the source and credits.</p>
+
+                    <p>Occasionally, for specific illustrative purposes directly related to the content of a blog post or educational explanation, a copyrighted image (such as a screenshot from an anime) may be used. Such images are included under the provisions of Swiss copyright law, specifically the right of quotation <a href="https://www.fedlex.admin.ch/eli/cc/1993/1798_1798_1798/en#a25" target="_blank">(Art. 25 para. 1 CopA)</a>, which permits the use of works for illustration or explanation provided the source is acknowledged. These images will be clearly credited within the blog post or page where they appear, identifying the source material.</p>
+
+                    <h4>Specific images credit and source</h4>
+                    <ul>
+                        <li>
+                            <strong>Homepage banner image:</strong> by <a href="https://pixabay.com/users/hokusay-32097303/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7672786" target="_blank">hok</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7672786"
+                            target="_blank">Pixabay</a>
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <p><em>This credits section was last updated on the 1st of June 2025.</em></p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                May 2025 / Ichigoichie.
+                <br> This site was created by Rocco Cavenaghi for the "Publication Web" course at HEG-Genève, as a project to learn web development. Taught by Professor Alexandre Boder with assistance from Adrian Valente.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script(s), etc -->
+    <script src="../script.js"></script>
+
+</body>
+
+</html>

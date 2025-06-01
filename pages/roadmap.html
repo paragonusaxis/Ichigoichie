@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Page head elements... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Ichigoichie - Roadmap</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <!-- Site header -->
+    <header class="site-header" id="site-header">
+
+        <div class="container header-content">
+
+            <!-- This allows users to tab into this hidden element when arriving into the page, because its focusable. This can be used to allow the user to skip to the main content directly and it is a form of assistive tool. -->
+            <a href="#main-content" class="skip-link">Skip to main content</a>
+
+            <!-- Site title -->
+            <div class="site-title"><a href="../index.html">一期一会</a></div>
+
+            <!-- Hamburger menu for mobile-->
+            <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation-list">
+                <span class="hamburger-icon"></span>
+            </button>
+
+            <!-- Nav menu, collapses on mobile -->
+            <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+                <ul class="nav-list" id="main-navigation-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./posts/index.html">Blog</a></li>
+                    <li><a href="./resources.html">Resources</a></li>
+                    <li><a href="#" aria-current="page">Roadmap</a></li>
+                    <li><a href="./about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sidebar button toggle for mobile, is fixed on the bottom left of the page, I put it here so that it has tabbing priority -->
+    <button id="fab-sidebar-toggle" class="fab-sidebar-button box-shadow" aria-label="Toggle page navigation sidebar" aria-expanded="false" aria-controls="contextual-sidebar">
+        <svg class="sidebar-icon" fill="#000000" width="100px" height="100px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <rect id="page" x="-1152" y="0" width="1280" height="800" style="fill:none;" />
+
+            <path id="sidebar" d="M50.008,56l-35.989,0c-3.309,0 -5.995,-2.686 -5.995,-5.995l0,-36.011c0,-3.308 2.686,-5.995 5.995,-5.995l35.989,0c3.309,0 5.995,2.687 5.995,5.995l0,36.011c0,3.309 -2.686,5.995 -5.995,5.995Zm-25.984,-4.001l0,-39.999l-9.012,0c-1.65,0 -2.989,1.339 -2.989,2.989l0,34.021c0,1.65 1.339,2.989 2.989,2.989l9.012,0Zm24.991,-39.999l-20.991,0l0,39.999l20.991,0c1.65,0 2.989,-1.339 2.989,-2.989l0,-34.021c0,-1.65 -1.339,-2.989 -2.989,-2.989Z"
+            />
+        </svg>
+    </button>
+
+    <!-- Main content container -->
+    <div class="container main">
+        <!-- Special container for page with sidebar -->
+        <div class="page-with-sidebar">
+            <!-- Sidebar -->
+            <aside id="contextual-sidebar" class="sidebar contextual-sidebar">
+
+                <nav class="sidebar-nav" aria-label="Roadmap page sections">
+                    <h2>Roadmap</h2>
+                    <ul>
+                        <li><a href="#begin">Beginning</a></li>
+                        <li><a href="#syllabaries">Syllabaries</a></li>
+                        <li><a href="#kanji">Kanji & Grammar</a></li>
+                        <li><a href="#immersion">Immersion</a></li>
+                    </ul>
+                </nav>
+
+            </aside>
+
+            <!-- Main content -->
+            <main id="main-content">
+                <!-- Breadcrumbs navigation / fil d'ariane -->
+                <nav aria-label="Breadcrumb" class="breadcrumbs">
+                    <ol>
+                        <li><a href="../index.html">Home</a></li>
+                        <li aria-current="page">Roadmap</li>
+                    </ol>
+                </nav>
+                
+                <h1>Roadmap</h1>
+                <img src="../images/roadmap.jpg" alt="Anime-style backpaper girl walking in a forest road at night" class="responsive-image content-image banner-image">
+                <p>Image by <a href="https://pixabay.com/users/jensenartofficial-31380959/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7628303" target="_blank">Jensen Art Co</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7628303" target="_blank">Pixabay</a></p>
+
+                <div class="background-wrapper box-shadow">
+                    <section class="first" id="begin" aria-labelledby="begin-title">
+                        <h2 id="begin-title">The Beginning: Setting Your Course</h2>
+                        <p>
+                            Welcome to your Japanese learning adventure! The first step is often the most exciting and perhaps a little daunting. Before diving into the complexities of the language, it's helpful to define your goals. Why do you want to learn Japanese? Is it to watch anime without subtitles, read manga in its original form, travel to Japan, or connect with Japanese culture on a deeper level? Your motivations will shape your learning path and help you stay focused.
+                        </p>
+                        <p>
+                            Understand that learning a language is a marathon, not a sprint. Consistency is what matters most. Even 15-30 minutes of focused study each day can be more effective than sporadic long sessions. Don't be afraid to make mistakes, as they are an integral part of the learning process. Find enjoyment in the journey, celebrate small victories, and cultivate a mindset of "ichigo ichie", treasuring each unique learning moment.
+                        </p>
+                    </section>
+
+                    <section id="syllabaries" aria-labelledby="syllabaries-title">
+                        <h2 id="syllabaries-title">The Foundation: Mastering the Syllabaries (Kana)</h2>
+                        <p>
+                            The absolute first difficulty in learning written Japanese is to master the two syllabaries: Hiragana (ひらがな) and Katakana (カタカナ). Hiragana is used for native Japanese words, grammatical particles, and verb conjugations. Katakana is primarily for foreign loanwords, onomatopoeia, and emphasis. Together, they are referred to as Kana.
+                        </p>
+                        <p>
+                            Learning Kana is non-negotiable as it unlocks your ability to read and pronounce Japanese. Trying to learn Japanese using only romaji (Roman alphabet spellings of Japanese sounds) is just not pheasible. Aim to learn to recognize and write all characters in both systems. This typically takes a few weeks of dedicated practice. There are many excellent tools available, including mnemonic systems and apps. For some great options, check out the <a href="./resources.html#kana">Kana resources</a>.
+                        </p>
+                    </section>
+
+                    <section id="kanji" aria-labelledby="kanji-title">
+                        <h2 id="kanji-title">Building Blocks: Kanji and Basic Grammar</h2>
+                        <p>
+                            Once you have a solid grasp of Kana, it's time to embark on the (admitedlly long) journey of learning Kanji (漢字) and fundamental Japanese grammar. Kanji are logographic characters borrowed from Chinese, each representing a concept or idea. Learning Kanji is a significant undertaking, as there are thousands in common use. Don't let this discourage you! Start with the most common ones and learn them gradually. Many resources teach Kanji by breaking them down into simpler components called radicals and using mnemonics. Consistent review, often with a Spaced Repetition System (SRS), is crucial for retention. Explore some effective <a href="./resources.html#kanji">Kanji learning tools</a> on the resources page.
+                        </p>
+                        <p>
+                            Simultaneously, begin learning basic Japanese grammar. Japanese sentence structure (Subject-Object-Verb) is different from English, and particles play a central role in defining the function of words in a sentence. Start with simple sentence patterns, verb conjugations (present, past, negative), and common particles. Understanding these fundamentals will allow you to start forming your own sentences and comprehending basic texts. The <a href="./resources.html#grammar">grammar resources section</a> can point you to helpful learning materials.
+                        </p>
+                    </section>
+
+                    <section id="immersion" aria-labelledby="immersion-title">
+                        <h2 id="immersion-title">Bringing it to Life: Immersion and Practice</h2>
+                        <p>
+                            With a foundation in Kana, basic Kanji, and grammar, it is time for the most important step of all: immersion. Immersion means surrounding yourself with Japanese as much as possible. This is where your learning truly comes alive and starts to stick. The goal is to make Japanese a part of your daily life, not just a subject you study.
+                        </p>
+                        <p>
+                            Start consuming content made for native speakers, even if it feels challenging at first. This could include:
+                        </p>
+                        <ul>
+                            <li><strong>Reading:</strong> Children's books, graded readers, simple manga, news articles for learners.</li>
+                            <li><strong>Listening:</strong> Japanese music, podcasts for learners, anime with Japanese subtitles (or without, if you're feeling brave!), Japanese YouTubers.</li>
+                            <li><strong>Speaking:</strong> Find a language exchange partner, join a conversation group, or even just talk to yourself in Japanese. Don't worry about perfection; focus on communication.</li>
+                            <li><strong>Writing:</strong> Try journaling in simple Japanese, writing comments on Japanese social media, or doing grammar exercises that involve sentence creation.</li>
+                        </ul>
+                            
+                        <p>
+                            key is to find materials and activities you enjoy, as this will keep you motivated. As you immerse yourself, you'll naturally encounter new vocabulary and grammar in context, reinforcing what you've learned and accelerating your progress towards fluency. This stage is ongoing. The more you immerse, the more proficient you'll become. Check <a href="./posts/immersion.html">this</a> blog post I made about finding immerison that matters for you.
+                        </p>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                May 2025 / Ichigoichie.
+                <br> This site was created by Rocco Cavenaghi for the "Publication Web" course at HEG-Genève, as a project to learn web development. Taught by Professor Alexandre Boder with assistance from Adrian Valente. For full credits and references,
+                see the <a href="./about.html">about page</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script(s), etc -->
+    <script src="../script.js"></script>
+
+</body>
+
+</html>

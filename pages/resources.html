@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Page head elements... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Ichigoichie - Resources</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <!-- Site header -->
+    <header class="site-header" id="site-header">
+
+        <div class="container header-content">
+
+            <!-- This allows users to tab into this hidden element when arriving into the page, because its focusable. This can be used to allow the user to skip to the main content directly and it is a form of assistive tool. -->
+            <a href="#main-content" class="skip-link">Skip to main content</a>
+
+            <!-- Site title -->
+            <div class="site-title"><a href="../index.html">一期一会</a></div>
+
+            <!-- Hamburger menu for mobile-->
+            <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation-list">
+                <span class="hamburger-icon"></span>
+            </button>
+
+            <!-- Nav menu, collapses on mobile -->
+            <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+                <ul class="nav-list" id="main-navigation-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./posts/index.html">Blog</a></li>
+                    <li><a href="#" aria-current="page">Resources</a></li>
+                    <li><a href="./roadmap.html">Roadmap</a></li>
+                    <li><a href="./about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sidebar button toggle for mobile, is fixed on the bottom left of the page, I put it here so that it has tabbing priority -->
+    <button id="fab-sidebar-toggle" class="fab-sidebar-button box-shadow" aria-label="Toggle page navigation sidebar" aria-expanded="false" aria-controls="contextual-sidebar">
+        <svg class="sidebar-icon" fill="#000000" width="100px" height="100px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <rect id="page" x="-1152" y="0" width="1280" height="800" style="fill:none;" />
+
+            <path id="sidebar" d="M50.008,56l-35.989,0c-3.309,0 -5.995,-2.686 -5.995,-5.995l0,-36.011c0,-3.308 2.686,-5.995 5.995,-5.995l35.989,0c3.309,0 5.995,2.687 5.995,5.995l0,36.011c0,3.309 -2.686,5.995 -5.995,5.995Zm-25.984,-4.001l0,-39.999l-9.012,0c-1.65,0 -2.989,1.339 -2.989,2.989l0,34.021c0,1.65 1.339,2.989 2.989,2.989l9.012,0Zm24.991,-39.999l-20.991,0l0,39.999l20.991,0c1.65,0 2.989,-1.339 2.989,-2.989l0,-34.021c0,-1.65 -1.339,-2.989 -2.989,-2.989Z"
+            />
+        </svg>
+    </button>
+
+    <!-- Main content container -->
+    <div class="container main">
+        <!-- Special container for page with sidebar -->
+        <div class="page-with-sidebar">
+            <!-- Sidebar -->
+            <aside id="contextual-sidebar" class="sidebar contextual-sidebar">
+
+                <nav class="sidebar-nav" aria-label="Resources page sections">
+                    <h2>Resources</h2>
+                    <ul>
+                        <li><a href="#kana">Kana</a></li>
+                        <li>
+                            <ul class="submenu">
+                                <li><a href="#tofugukana">Tofugu kana books</a></li>
+                                <li><a href="#moku">Dr. Moku</a></li>
+                                <li><a href="#jp101kana">Japanesepod101</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#kanji">Kanji</a></li>
+                        <li>
+                            <ul class="submenu">
+                                <li><a href="#wanikani">Wanikani</a></li>
+                                <li><a href="#klc">KLC</a></li>
+                                <li><a href="#kanjidamage">Kanji Damage</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#grammar">Grammar</a></li>
+                        <li>
+                            <ul class="submenu">
+                                <li><a href="#tofugugrammar">Tofugu Grammar</a></li>
+                                <li><a href="#bunpro">Bunpro</a></li>
+                                <li><a href="#imabi-resource">Imabi</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+            </aside>
+
+            <!-- Main content -->
+            <main id="main-content">
+                <!-- Breadcrumbs navigation / fil d'ariane -->
+                <nav aria-label="Breadcrumb" class="breadcrumbs">
+                    <ol>
+                        <li><a href="../index.html">Home</a></li>
+                        <li aria-current="page">Resources</li>
+                    </ol>
+                </nav>
+
+                <h1>Resources</h1>
+                <img src="../images/resources.jpg" alt="Anime-style girl amidst bookshelves" class="responsive-image content-image banner-image">
+                <p>Image by <a href="https://pixabay.com/users/qiaominxu_橋茗旭-18717949/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8365998" target="_blank">qiaominxu 橋茗旭</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8365998" target="_blank">Pixabay</a></p>
+
+                <!-- Resources separated in sections by type -->
+                <section class="first background-wrapper green box-shadow" id="kana" aria-labelledby="kana-title">
+                    <h2 id="kana-title">Kana</h2>
+                    <p>
+                        Kana (仮名) are syllabic Japanese scripts, a part of the Japanese writing system, contrasted with the logographic Chinese characters known in Japan as kanji (漢字). There are two main types of kana: hiragana (ひらがな), used for native Japanese words and grammatical particles, and katakana (カタカナ), primarily used for foreign loanwords, onomatopoeia, and emphasis. Learning kana is the foundational first step for any Japanese language learner, as it unlocks the ability to read and pronounce Japanese words.
+                    </p>
+
+                    <div class="table-scroll-wrapper">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Resource</th>
+                                    <th>Methodology</th>
+                                    <th>Platform</th>
+                                    <th>Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tofugu Kana Books</td>
+                                    <td>Mnemonics, Writing Practice</td>
+                                    <td>PDF Workbooks</td>
+                                    <td>Free</td>
+                                </tr>
+                                <tr>
+                                    <td>Dr. Moku</td>
+                                    <td>Mnemonic Images & Stories, Quizzes</td>
+                                    <td>Mobile App (iOS, Android)</td>
+                                    <td>Free (limited), Paid (full access)</td>
+                                </tr>
+                                <tr>
+                                    <td>Japanesepod101</td>
+                                    <td>Video Lessons, Practice Exercises</td>
+                                    <td>Website, YouTube</td>
+                                    <td>Free (some content), Subscription for full access</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Each section has accordions to organize them -->
+                    <div class="accordion-container">
+                        <!-- Tofugu Kana accordion item -->
+                        <div id="tofugukana" class="accordion-item">
+                            <h3>
+                                <button
+                                    type="button"
+                                    aria-expanded="false"
+                                    class="accordion-trigger"
+                                    aria-controls="tofugukana-panel"
+                                    id="tofugukana-header">
+                                    Tofugu Kana Books
+                                </button>
+                            </h3>
+                            <div id="tofugukana-panel" role="region" aria-labelledby="tofugukana-header" class="accordion-panel">
+                                <p>Tofugu offers free PDF workbooks for learning both hiragana and katakana. These books utilize mnemonic devices to help learners associate the shape of each kana character with its sound. They also include writing practice sheets and reading exercises. Tofugu emphasizes learning to read kana before focusing heavily on writing. They also provide Anki decks for Hiragana and Katakana.</p>
+                                <ul>
+                                    <li><strong>Pros:</strong> Free, uses effective mnemonic strategies, includes practice.</li>
+                                    <li><strong>Cons:</strong> Requires self-discipline as it's a workbook format.</li>
+                                    <li><strong>Website:</strong> <a href="https://www.tofugu.com/japanese/learn-hiragana/" target="_blank">Tofugu Learn Hiragana</a>, <a href="https://www.tofugu.com/japanese/learn-katakana/" target="_blank">Tofugu Learn Katakana</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                         <!-- Dr. Moku accordion item -->
+                        <div id="moku" class="accordion-item">
+                            <h3>
+                                <button
+                                    type="button"
+                                    aria-expanded="false"
+                                    class="accordion-trigger"
+                                    aria-controls="moku-panel"
+                                    id="moku-header">
+                                    Dr. Moku
+                                </button>
+                            </h3>
+                            <div id="moku-panel" role="region" aria-labelledby="moku-header" class="accordion-panel">
+                                <p>Dr. Moku is an app (available on iOS and Android) that uses memorable mnemonic images and stories to teach hiragana and katakana. The app features animated writing guides, various quiz modes (visual recognition, audio recognition, writing practice), and example words with audio. While a portion of the content is free, full access to all kana and features requires a one-time purchase.</p>
+                                <ul>
+                                    <li><strong>Pros:</strong> Engaging mnemonics, interactive quizzes, audio pronunciation.</li>
+                                    <li><strong>Cons:</strong> Full version is paid, some users might prefer a less "gamified" approach.</li>
+                                    <li><strong>Website:</strong> <a href="https://drmoku.com/" target="_blank">Dr. Moku Official Site</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                         <!-- Japanesepod101 Kana accordion item -->
+                        <div id="jp101kana" class="accordion-item">
+                            <h3>
+                                <button
+                                    type="button"
+                                    aria-expanded="false"
+                                    class="accordion-trigger"
+                                    aria-controls="jp101kana-panel"
+                                    id="jp101kana-header">
+                                    Japanesepod101
+                                </button>
+                            </h3>
+                            <div id="jp101kana-panel" role="region" aria-labelledby="jp101kana-header" class="accordion-panel">
+                                <p>Japanesepod101 offers resources for learning kana, often through video lessons available on their website and YouTube channel. These lessons typically break down the strokes and pronunciation of each character and may include writing practice and examples. While many introductory materials are free, comprehensive access to their learning system usually requires a subscription.</p>
+                                <ul>
+                                    <li><strong>Pros:</strong> Video-based learning can be engaging, often provides cultural context.</li>
+                                    <li><strong>Cons:</strong> Full access requires a subscription, the sheer volume of content can sometimes be overwhelming for beginners.</li>
+                                    <li><strong>Videos:</strong> can be found in JapanesePod101 <a href="https://www.youtube.com/@JapanesePod101" target="_blank">YouTube channel</a>. Example below.</li>
+                                </ul>
+                                <div class="video-container">
+                                    <iframe class="youtube-video" src="https://www.youtube.com/embed/6p9Il_j0zjc?si=FRFQglBLC74rEFA8" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="background-wrapper violet box-shadow" id="kanji" aria-labelledby="kanji-title">
+                    <h2 id="kanji-title">Kanji</h2>
+                    <p>
+                        Kanji (漢字) are logographic characters adopted from Chinese and used in the Japanese writing system. They represent words or ideas, and learning them is a significant part of achieving literacy in Japanese. Most kanji have multiple readings (pronunciations) which can change depending on context, as well as multiple meanings. Effective kanji study often involves breaking characters down into simpler components (radicals) and using mnemonics to remember meanings and readings. 
+                    </p>
+
+                    <div class="table-scroll-wrapper">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Resource</th>
+                                    <th>Primary Focus</th>
+                                    <th>Methodology</th>
+                                    <th>Platform</th>
+                                    <th>Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>WaniKani</td>
+                                    <td>Kanji and Vocabulary</td>
+                                    <td>Radicals, Mnemonics, SRS</td>
+                                    <td>Web App</td>
+                                    <td>Free (first 3 levels), Subscription</td>
+                                </tr>
+                                <tr>
+                                    <td>Kodansha Kanji Learner's Course (KLC)</td>
+                                    <td>Kanji Meanings & Writing</td>
+                                    <td>Component Graphemes, Mnemonics, Structured Order</td>
+                                    <td>Textbook</td>
+                                    <td>Paid</td>
+                                </tr>
+                                <tr>
+                                    <td>Kanji Damage</td>
+                                    <td>Kanji Meanings & Readings</td>
+                                    <td>Component Breakdown, Mnemonics (often irreverent)</td>
+                                    <td>Website, Anki Deck</td>
+                                    <td>Free</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                     <div class="accordion-container">
+                        <div id="wanikani" class="accordion-item">
+                            <h3>
+                                <button
+                                    type="button"
+                                    aria-expanded="false"
+                                    class="accordion-trigger"
+                                    aria-controls="wanikani-panel"
+                                    id="wanikani-header">
+                                    WaniKani
+                                </button>
+                            </h3>
+                            <div id="wanikani-panel" role="region" aria-labelledby="wanikani-header" class="accordion-panel">
+                                <p>WaniKani is a web-based system by Tofugu for learning kanji and vocabulary using a Spaced Repetition System (SRS). It teaches kanji by first introducing radicals (component parts), then kanji using those radicals, and finally vocabulary words using those kanji. Mnemonics are provided for radicals, kanji meanings, and readings. The first three levels are free, with a subscription required for further access. WaniKani prioritizes teaching useful readings. It's praised for its structured approach and memorable mnemonics. However, it doesn't explicitly teach stroke order.</p>
+                                <ul>
+                                    <li><strong>Pros:</strong> Effective SRS, strong mnemonic system, teaches radicals first, active community.</li>
+                                    <li><strong>Cons:</strong> Subscription cost after free levels, pace can feel slow initially or overwhelming if reviews pile up, doesn't teach writing/stroke order. Some vocabulary taught might be less common. </li>
+                                    <li><strong>Website:</strong> <a href="https://www.wanikani.com" target="_blank">WaniKani</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="klc" class="accordion-item">
+                            <h3>
+                                <button
+                                    type="button"
+                                    aria-expanded="false"
+                                    class="accordion-trigger"
+                                    aria-controls="klc-panel"
+                                    id="klc-header">
+                                    Kodansha Kanji Learner's Course (KLC)
+                                </button>
+                            </h3>
+                            <div id="klc-panel" role="region" aria-labelledby="klc-header" class="accordion-panel">
+                                <p>The Kodansha Kanji Learner's Course is a well-regarded textbook designed to teach 2,300 kanji. It uses mnemonics and groups kanji by component graphemes (similar to radicals) to aid memory. KLC introduces kanji in a specific order, and example vocabulary only uses kanji previously learned. While it's comprehensive for meanings and provides vocabulary, it doesn't have a built-in SRS, so users often pair it with tools like Anki. It aims to help learners achieve genuine literacy. Graded readers are available as supplementary material.</p>
+                                <ul>
+                                    <li><strong>Pros:</strong> Thorough, well-structured, introduces kanji components systematically, vocabulary uses learned kanji.</li>
+                                    <li><strong>Cons:</strong> Textbook format (no built-in SRS), requires separate review methods, can feel more like a reference book.</li>
+                                    <li><strong>Website:</strong> Usually purchased through bookstores like Amazon.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="kanjidamage" class="accordion-item">
+                            <h3>
+                                <button
+                                    type="button"
+                                    aria-expanded="false"
+                                    class="accordion-trigger"
+                                    aria-controls="kanjidamage-panel"
+                                    id="kanjidamage-header">
+                                    Kanji Damage
+                                </button>
+                            </h3>
+                            <div id="kanjidamage-panel" role="region" aria-labelledby="kanjidamage-header" class="accordion-panel">
+                                <p>Kanji Damage is a free website that teaches around 1,700 kanji using mnemonics, often with a humorous and sometimes NSFW (Not Safe For Work) tone. It breaks down kanji into components and provides mnemonics for meanings and readings. The site also lists vocabulary for each kanji. While the website itself isn't interactive, an official Anki deck is available for SRS review. The author selected kanji based on perceived usefulness, so it covers fewer kanji than some other resources.</p>
+                                <ul>
+                                    <li><strong>Pros:</strong> Free, unique and memorable (if sometimes crude) mnemonics, provides component breakdown and vocabulary.</li>
+                                    <li><strong>Cons:</strong> NSFW/offensive humor may not suit everyone, covers fewer kanji than some comprehensive courses, website itself is not an interactive tool.</li>
+                                    <li><strong>Website:</strong> <a href="http://www.kanjidamage.com" target="_blank">Kanji Damage</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="background-wrapper yellow box-shadow" id="grammar" aria-labelledby="grammar-title">
+                    <h2 id="grammar-title">Grammar</h2>
+                    <p>
+                        Japanese grammar (文法 - bunpō) is quite different from English grammar. Key features include Subject-Object-Verb (SOV) sentence structure, the use of particles to indicate the grammatical function of words, and an extensive system of honorifics (keigo) to show respect. Understanding grammar is crucial for constructing coherent sentences and comprehending native materials. Many resources approach grammar by breaking it down into patterns, conjugations, and particle usage.
+                    </p>
+
+                    <div class="table-scroll-wrapper">
+                        <table class="comparison-table">
+                           <thead>
+                               <tr>
+                                   <th>Resource</th>
+                                   <th>Primary Focus</th>
+                                   <th>Methodology</th>
+                                   <th>Platform</th>
+                                   <th>Cost</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                   <td>Tofugu Grammar</td>
+                                   <td>Grammar Concepts & Usage</td>
+                                   <td>In-depth Articles, Examples, Cultural Context</td>
+                                   <td>Website/Blog</td>
+                                   <td>Free</td>
+                               </tr>
+                               <tr>
+                                   <td>Bunpro</td>
+                                   <td>Grammar Reinforcement</td>
+                                   <td>SRS, Fill-in-the-blank Quizzes, Links to External Resources</td>
+                                   <td>Web App</td>
+                                   <td>Free (limited), Subscription</td>
+                               </tr>
+                               <tr>
+                                   <td>Imabi</td>
+                                   <td>Comprehensive Grammar Reference</td>
+                                   <td>Detailed Text-based Lessons, Examples</td>
+                                   <td>Website</td>
+                                   <td>Free</td>
+                               </tr>
+                           </tbody>
+                       </table>
+                   </div>
+
+                    <div class="accordion-container">
+                        <div id="tofugugrammar" class="accordion-item">
+                            <h3>
+                                <button
+                                    type="button"
+                                    aria-expanded="false"
+                                    class="accordion-trigger"
+                                    aria-controls="tofugugrammar-panel"
+                                    id="tofugugrammar-header">
+                                    Tofugu Grammar
+                                </button>
+                            </h3>
+                            <div id="tofugugrammar-panel" role="region" aria-labelledby="tofugugrammar-header" class="accordion-panel">
+                                <p>Tofugu's website features a substantial section dedicated to explaining Japanese grammar points. Their articles are known for being well-researched, detailed, and often provide cultural or historical context behind grammatical structures. They use clear explanations, example sentences, and sometimes visualizations to help learners grasp concepts. The grammar section allows users to look up specific points or browse by categories.</p>
+                                <ul>
+                                    <li><strong>Pros:</strong> Free, in-depth explanations, clear examples, often includes nuances and cultural context.</li>
+                                    <li><strong>Cons:</strong> Not a structured course, more of a reference or collection of articles.</li>
+                                    <li><strong>Website:</strong> <a href="https://www.tofugu.com/japanese-grammar/" target="_blank">Tofugu Japanese Grammar</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="bunpro" class="accordion-item">
+                            <h3>
+                                <button
+                                    type="button"
+                                    aria-expanded="false"
+                                    class="accordion-trigger"
+                                    aria-controls="bunpro-panel"
+                                    id="bunpro-header">
+                                    Bunpro
+                                </button>
+                            </h3>
+                            <div id="bunpro-panel" role="region" aria-labelledby="bunpro-header" class="accordion-panel">
+                                <p>Bunpro is a web app designed to teach and reinforce Japanese grammar using an SRS. It presents grammar points, often categorized by JLPT level, and quizzes users with fill-in-the-blank sentences where they must type the correct grammar. For each grammar point, Bunpro provides concise explanations, example sentences, and links to external resources (like Tae Kim, Imabi) for more detailed learning. It has a free trial/limited free access, with a subscription for full functionality.</p>
+                                <ul>
+                                    <li><strong>Pros:</strong> SRS for grammar, active recall through typing, links to other resources, customizable learning paths.</li>
+                                    <li><strong>Cons:</strong> Subscription for full access, explanations within Bunpro itself can be minimal (relies on external links for depth), can be easy to get overwhelmed with reviews if too many points are added at once.</li>
+                                    <li><strong>Website:</strong> <a href="https://bunpro.jp" target="_blank">Bunpro</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="imabi-resource" class="accordion-item"> 
+                            <h3>
+                                <button
+                                    type="button"
+                                    aria-expanded="false"
+                                    class="accordion-trigger"
+                                    aria-controls="imabi-resource-panel"
+                                    id="imabi-resource-header">
+                                    Imabi
+                                </button>
+                            </h3>
+                            <div id="imabi-resource-panel" role="region" aria-labelledby="imabi-resource-header" class="accordion-panel">
+                                <p>Imabi is a free website offering an extensive and very detailed guide to Japanese grammar. It features hundreds of lessons, organized by difficulty from beginner to advanced, and even includes sections on Classical Japanese. Imabi's explanations are thorough, often going into nuances that other resources might overlook. While praised for its depth, its text-heavy and sometimes dense presentation might be better suited as a reference tool or for intermediate to advanced learners. The site design is simple, and it lacks interactive exercises or built-in SRS.</p>
+                                <ul>
+                                    <li><strong>Pros:</strong> Free, extremely comprehensive and detailed grammar explanations, covers a vast range of topics including classical Japanese.</li>
+                                    <li><strong>Cons:</strong> Can be very dense and text-heavy, may be overwhelming for absolute beginners, simple site design, no interactive exercises or audio.</li>
+                                    <li><strong>Website:</strong> <a href="https://www.imabi.net" target="_blank">Imabi</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                May 2025 / Ichigoichie.
+                <br> This site was created by Rocco Cavenaghi for the "Publication Web" course at HEG-Genève, as a project to learn web development. Taught by Professor Alexandre Boder with assistance from Adrian Valente. For full credits and references,
+                see the <a href="./about.html">about page</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script(s), etc -->
+    <script src="../script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Page head elements... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Ichigoichie - Blog</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <!-- Site header -->
+    <header class="site-header" id="site-header">
+
+        <div class="container header-content">
+
+            <!-- This allows users to tab into this hidden element when arriving into the page, because its focusable. This can be used to allow the user to skip to the main content directly and it is a form of assistive tool. -->
+            <a href="#main-content" class="skip-link">Skip to main content</a>
+
+            <!-- Site title -->
+            <div class="site-title"><a href="../../index.html">一期一会</a></div>
+
+            <!-- Hamburger menu for mobile-->
+            <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation-list">
+                <span class="hamburger-icon"></span>
+            </button>
+
+            <!-- Nav menu, collapses on mobile -->
+            <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+                <ul class="nav-list" id="main-navigation-list">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#" aria-current="page">Blog</a></li>
+                    <li><a href="../resources.html">Resources</a></li>
+                    <li><a href="../roadmap.html">Roadmap</a></li>
+                    <li><a href="../about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content container -->
+    <div class="container main">
+        <!-- Breadcrumbs navigation / fil d'ariane -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs">
+            <ol>
+                <li><a href="../../index.html">Home</a></li>
+                <li aria-current="page">Blog</li>
+            </ol>
+        </nav>
+
+        <!-- Main content -->
+        <main id="main-content">
+
+            <!-- All blog posts, this could eventually have a load more or pages system, also filter and tagging, but for the moment it's only a page that lists all of the existing posts -->
+            <h1>Blog posts</h1>
+            <section class="first" aria-labelledby="blog-feed-title">
+                <h2 id="blog-feed-title">Recent Posts</h2>
+                <div class="blog-feed">
+                    <!-- blog posts cards -->
+                    <article>
+                        <a href="./immersion.html" class="card horizontal box-shadow">
+                            <img src="../../images/immersion.jpg" alt="nime-style man overlooking a snowy landscape" class="card-image">
+
+                            <div class="card-content">
+                                <div>
+                                    <h3 class="card-title">Immersion that Matters</h3>
+                                    <p class="card-meta">Published on
+                                        <time datetime="2025-05-31">May 31, 2025</time>
+                                    </p>
+                                    <p>Exploring different paths to Japanese immersion, from structured beginner content to diving into personal interests, and why the best method is the one that keeps you engaged.</p>
+                                </div>
+
+                                <span class="card-read">Read More</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article>
+                        <a href="./aonosumika.html" class="card horizontal box-shadow">
+                            <img src="../../images/aonosumika.jpg" alt="Gojo Satoru and Suguru Geto from Jujutsu Kaisen" class="card-image">
+
+                            <div class="card-content">
+                                <div>
+                                    <h3 class="card-title">A Beginner's Take on Tatsuya Kitani's "Ao no Sumika"</h3>
+                                    <p class="card-meta">Published on
+                                        <time datetime="2025-05-01">May 31, 2025</time>
+                                    </p>
+                                    <p>Let's explore Tatsuya Kitani's "Ao no Sumika," the lyrics, grammar, and emotional depth of this Jujutsu Kaisen ending theme.</p>
+                                </div>
+
+                                <span class="card-read">Read More</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article>
+                        <a href="./wanikani-experience.html" class="card horizontal box-shadow">
+                            <img src="../../images/wanikani-experience.jpg" alt="Photo of Japanese Kanji characters" class="card-image">
+
+                            <div class="card-content">
+                                <div>
+                                    <h3 class="card-title">WaniKani: My Personal Experience</h3>
+                                    <p class="card-meta">Published on
+                                        <time datetime="2025-05-28">May 28, 2025</time>
+                                    </p>
+                                    <p>Sharing my journey with WaniKani: how this popular tool is helping me tackle the intimidating world of kanji and making my Japanese studies feel more rewarding.</p>
+                                </div>
+
+                                <span class="card-read">Read More</span>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                May 2025 / Ichigoichie.
+                <br> This site was created by Rocco Cavenaghi for the "Publication Web" course at HEG-Genève, as a project to learn web development. Taught by Professor Alexandre Boder with assistance from Adrian Valente. For full credits and references,
+                see the <a href="../about.html">about page</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script(s), etc -->
+    <script src="../../script.js"></script>
+
+</body>
+
+</html>

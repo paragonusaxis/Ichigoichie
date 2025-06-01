@@ -1,0 +1,1461 @@
+/* --- Variables --- */
+
+:root {
+    /* Main colors */
+	--dark: #212520;
+	--light: #eee;
+	--white: #fff;
+    /* Greys */
+	--light-grey: #e4e4e4;
+	--grey: #c4c4c4;
+	--medium-grey: #666;
+	--dark-grey: #333;
+    /* Accents */
+	--accent: #344d37;
+	--dark-acent: #233125;
+	--light-accent: #e4f0dbfc;
+    /* Colorful */
+	--green: #b1d4b4;
+	--violet: #cdaaee;
+	--yellow: #eee4ae;
+	--blue: #0054ad;
+	--header-height: 70px;
+}
+
+/* --- Globals and resets, etc --- */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+    /* Prefer system fonts wit a few common fallbacks */
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+	line-height: 1.6;
+	background-color: var(--light);
+	color: var(--dark);
+}
+
+/* Class that is added to the body through JS when the mobile menu is open that disables scroll */
+body.no-scroll {
+	overflow: hidden;
+}
+
+/* Image globals */
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+img + p {
+	font-size: 0.8rem;
+	color: var(--medium-grey);
+	text-align: right;
+	margin-top: -1rem;
+}
+
+/* Links globals */
+a {
+	color: var(--blue);
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: underline;
+}
+
+/* Iframe globals */
+iframe {
+	border: none;
+	width: 100%;
+}
+
+/* --- Skip link --- */
+/* The skip link is hidden by default but can be tabbed into when the page loads (it is always the first element) */
+
+.skip-link {
+	position: absolute;
+    /* Below header */
+	top: var(--header-height);
+    /* Is hidden */
+	filter: opacity(0);
+	left: -500px;
+	background: var(--accent);
+	color: white;
+	padding: 0.5rem 1rem;
+	z-index: 1000;
+    /* Cute transition */
+	transition: filter 0.4s ease-in-out;
+}
+
+.skip-link:focus {
+    /* On focus, appears */
+	left: 20px;
+	filter: opacity(1);
+}
+
+/* --- Layouts and columns and stuff --- */
+.container {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.container.main {
+    /* Adds a margin to the main content so that it is not hidden by the sticky header */
+	margin-top: var(--header-height);
+}
+
+section {
+	margin-top: 3rem;
+}
+
+/* If first section, no margin and no margin for the header */
+section.first {
+	margin-top: 0;
+}
+
+/* If first h1 of main, remove margin top */
+main > h1:first-of-type {
+	margin-top: 0;
+}
+
+/* To make sure that the tables do not break the layout on mobile */
+main#main-content {
+    min-width: 0;
+}
+
+.two-columns {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: start;
+	gap: 3rem;
+}
+
+.flex-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: auto;
+}
+
+@media (max-width: 992px) {
+	.two-columns {
+		flex-direction: column;
+	}
+
+	.flex-center {
+		width: 100%;
+	}
+}
+ 
+
+/* --- Header --- */
+/* The idea is to make a header that acts like sticky, but hides on scroll down, appearing once again on scroll up */
+
+.site-header {
+    /* fixed based to the viewport, at the top */
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: var(--header-height);
+    /* High z-index so it is in front of content */
+	z-index: 1000;
+    /* Smooth hide/show */
+	transition: top 0.3s ease-in-out;
+	display: flex;
+	align-items: center;
+}
+
+/* This class is controled by JS to hide/show the header on scroll up. Since we have transition, it will have a nice smooth animation */
+.header-hidden {
+	top: calc(-1 * var(--header-height));
+}
+
+.header-content {
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+	padding: 0 2rem;
+	background: #f2f8f3c5;
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.14);
+	backdrop-filter: blur( 5px );
+	-webkit-backdrop-filter: blur( 5px );
+	border: 1px solid rgba(255, 255, 255, 0.295);
+}
+
+.site-title {
+	font-size: 1.5rem;
+	margin: 0;
+	font-weight: bold;
+	transition: transform 0.2s ease;
+}
+
+/* cute transition when hover */
+.site-title:focus,
+.site-title:hover {
+	transform: scale(1.05);
+}
+
+.site-title a {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+/* Removes border radius of header */
+@media (max-width: 1200px) {
+	.header-content {
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+}
+
+/* --- Main Navigation and hamburger --- */
+
+.main-nav {
+    /* Reset mobile overrides */
+	display: block;
+	position: static;
+	width: auto;
+	height: auto;
+	background-color: transparent;
+	backdrop-filter: none;
+	padding: 0;
+	transform: none;
+	transition: none;
+	overflow-y: visible;
+}
+
+.nav-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	gap: 1.5rem;
+}
+
+.nav-list a {
+	text-decoration: none;
+	color: var(--dark-grey);
+	display: block;
+	padding: 0.25rem 0;
+	font-size: 1rem;
+	transform: none;
+	transition: all 0.2s ease-in-out;
+}
+
+/* If current page, make nav link bold and change color */
+.nav-list a[aria-current="page"] {
+	font-weight: bold;
+	color: var(--accent);
+}
+
+/* If hover link in menu, change color and size */
+.nav-list a:focus,
+.nav-list a:hover {
+	color: var(--accent);
+	text-decoration: underline;
+	transform: scale(1.03);
+	transform: translateY(-2px);
+}
+
+
+/* Hamburger toggle */
+.hamburger-toggle {
+    /* Hide middle bar */
+	display: none;
+	background: none;
+	border: none;
+	padding: 0.5rem;
+	cursor: pointer;
+    /* Above header content */
+	z-index: 1001;
+}
+
+/* Little lines of hamburger */
+.hamburger-icon {
+	display: block;
+	border-radius: 50px;
+	width: 24px;
+	height: 2px;
+	background-color: var(--dark-grey);
+	position: relative;
+	transition: background-color 0s 0.1s linear;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+	content: '';
+	border-radius: 50px;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: var(--dark-grey);
+	transition: transform 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+
+.hamburger-icon::before {
+	top: -7px;
+}
+
+.hamburger-icon::after {
+	top: 7px;
+}
+
+
+/* Nav for mobile */
+@media (max-width: 992px) {
+    /* Show hamburger */
+	.hamburger-toggle {
+		display: block;
+	}
+
+    /* Mobile menu when u click in the hamburger */
+	.main-nav {
+        /* Hidden at first */
+		visibility: hidden;
+        /* Full screen */
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+        /* Slightly transparent and blurry background */
+		background-color: rgba(255, 255, 255, 0.815);
+		backdrop-filter: blur(5px);
+        /* Start below header */
+		padding: calc(var(--header-height) + 2rem) 1rem 2rem 1rem;
+        /* hides to the side */
+		transform: translateX(100%);
+		transition: visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+		overflow-y: auto;
+        /* Below header but above content */
+		z-index: 999;
+	}
+
+    /* Show menu when active */
+	.main-nav.nav-open {
+		visibility: visible;
+		transform: translateX(0);
+	}
+
+	.nav-list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.nav-list a {
+		font-size: 1.2rem;
+		padding: 0.75rem 1rem;
+	}
+
+    /* Animate Hamburger Icon to 'X' */
+	.hamburger-toggle[aria-expanded="true"] .hamburger-icon {
+        /* Hide middle bar */
+		background-color: transparent;
+	}
+
+	.hamburger-toggle[aria-expanded="true"] .hamburger-icon::before {
+		top: 0;
+		transform: rotate(45deg);
+		transition: top 0.2s ease-in-out, transform 0.2s 0.2s ease-in-out;
+	}
+
+	.hamburger-toggle[aria-expanded="true"] .hamburger-icon::after {
+		top: 0;
+		transform: rotate(-45deg);
+		transition: top 0.2s ease-in-out, transform 0.2s 0.2s ease-in-out;
+	}
+}
+
+/* --- Footer --- */
+
+.site-footer {
+	margin: auto;
+	margin-top: 3rem;
+	padding: 1.5rem 0;
+	border-top: 1px solid #eee;
+	text-align: center;
+	font-size: 0.9em;
+	color: var(--medium-grey);
+	max-width: 50rem;
+}
+
+/* --- Breadcrumbs --- */
+
+.breadcrumbs {
+	padding: 1rem 0;
+	padding-top: 2rem;
+	font-size: 0.9em;
+	color: var(--medium-grey);
+}
+
+.breadcrumbs ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.breadcrumbs li {
+	display: inline;
+}
+
+/* Add separator */
+.breadcrumbs li + li::before {
+	content: '>';
+	padding: 0 0.5em;
+	color: var(--medium-grey);
+}
+
+.breadcrumbs a {
+	color: var(--blue);
+	text-decoration: none;
+}
+
+.breadcrumbs a:focus,
+.breadcrumbs a:hover {
+	text-decoration: underline;
+}
+
+/* Current page in breadcrumbs (non-link) */
+.breadcrumbs li[aria-current="page"] {
+	font-weight: bold;
+	color: var(--dark-grey);
+}
+
+/* --- Cards (used mainly for posts preview in blog feeds) --- */
+
+.card {
+	border: 1px solid #cacaca;
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: var(--white);
+	margin-bottom: 1.5rem;
+	transition: transform 0.2s ease;
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+
+.card:focus,
+.card:hover {
+	transform: scale(1.02);
+	text-decoration: none;
+}
+
+/* Horizontal card types, mainly for the blog page */
+.card.horizontal {
+	display: flex;
+	flex-direction: row;
+}
+
+.card-image {
+	object-fit: cover;
+	height: 200px;
+	width: 100%;
+}
+
+/* Images in horizontal cards behave differently */
+.card.horizontal .card-image {
+	width: 500px;
+	height: auto;
+	min-height: 300px;
+}
+
+.card-content {
+	padding: 1rem;
+    /* this makes the size of the content until the bottom of the card so that the link can always be at the bottom, doesnt matter the size of the content :) */
+	height: calc(100% - 200px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/* In horizontal cards, the content behaves different */
+.card.horizontal .card-content {
+	padding: 2rem 3rem;
+	height: auto;
+	justify-content: end;
+}
+
+.card-title {
+	color: var(--dark);
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	font-size: 1.25rem;
+}
+
+.card:focus .card-title,
+.card:hover .card-title {
+	text-decoration: underline;
+}
+
+.card-meta {
+	font-size: 0.85em;
+	color: var(--medium-grey);
+	margin-bottom: 0.75rem;
+}
+
+.card-read {
+	margin-top: 0.5rem;
+	font-weight: bold;
+	color: var(--accent);
+}
+
+.card:focus .card-read,
+.card:hover .card-read {
+	text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+    /* Changes horizontal cards on mobile and make them behave just like regular cards */
+	.card.horizontal {
+		display: block;
+	}
+
+	.card.horizontal .card-image {
+		width: 100%;
+		height: 200px;
+		min-height: none;
+	}
+
+	.card.horizontal .card-content {
+		height: calc(100% - 200px);
+		padding: 1rem;
+		justify-content: space-between;
+	}
+}
+
+/* --- CSS for the landing page --- */
+
+/* Landing banner */
+.landing-banner {
+	margin-top: 2rem;
+	position: relative;
+	max-width: 1300px;
+	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	overflow: clip;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+}
+
+.landing-banner-image {
+	position: absolute;
+	top: -70%;
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+	min-height: 400px;
+}
+
+.landing-title-heading {
+	position: relative;
+	left: 100px;
+	bottom: 15%;
+	background-color: var(--dark);
+	padding: 1rem 1.5rem;
+	width: fit-content;
+	max-width: 30rem;
+	color: var(--white);
+}
+
+.landing-title-heading h1 {
+	font-size: 2rem;
+    /* Reset margins */
+	margin: 0;
+}
+
+.landing-title-heading p {
+    /* Reset margins */
+	margin-top: 0rem;
+}
+
+.landing-jp-accent {
+	background-color: var(--accent);
+	color: var(--white);
+	position: absolute;
+	right: 100px;
+	bottom: 0;
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+	letter-spacing: 0.1rem;
+	padding: 1rem 0;
+}
+
+/* Moves landing banner up and removes border radius when smaller screens */
+@media (max-width: 1300px) {
+	.landing-banner {
+		margin-top: 0rem;
+		width: 100%;
+		border-radius: 0;
+	}
+
+	.landing-banner-image {
+		top: 0;
+	}
+
+	.landing-title-heading {
+		left: 1.5rem;
+	}
+}
+
+@media (max-width: 600px) {
+    /* Adjust banner text on small screens */
+	.landing-banner {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.landing-title-heading {
+		margin-top: 60px;
+		position: static;
+		z-index: 1;
+		text-align: center;
+	}
+
+	.landing-jp-accent {
+		writing-mode: horizontal-tb;
+		position: static;
+		padding: 0 1rem;
+		z-index: 1;
+	}
+}
+
+
+/* --- CSS for landing page and blog page blog feed --- */
+
+.blog-feed.blog-page {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.blog-feed.landing {
+	display: grid;
+	/* Makes a grid with cells having a min width of 300px */
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 1.5rem;
+}
+/* Reset bottom margin for cards in grid */
+.blog-feed.landing .card {
+	margin-bottom: 0;
+	height: 100%;
+}
+
+/* For small screens */
+@media (max-width: 992px) {
+	.blog-feed.landing {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.blog-feed h2 {
+        /* Title for the feed */
+		margin-bottom: 1.5rem;
+	}
+}
+
+.blog-more {
+	width: 100%;
+	display: flex;
+	justify-content: end;
+	margin-top: 1rem;
+}
+
+/* I ended up not using this but is basically a link that is styled a bit differently */
+/* .blog-more a {
+    display: inline-block;
+    font-weight: bold;
+    color: var(--dark);
+    transition: transform 0.15s ease;
+} */
+
+/* .blog-more a:focus,
+.blog-more a:hover {
+    color: var(--accent);
+} */
+
+@media (max-width: 992px) {
+	.blog-more {
+		justify-content: center;
+		margin-top: 2rem;
+	}
+}
+
+/* --- Landing widgets --- */
+
+.widget {
+	width: 30rem;
+	border-radius: 10px;
+	padding: 1rem 2rem;
+	margin-bottom: 1rem;
+	color: var(--white);
+	transition: all 0.2s ease;
+	text-decoration: none;
+	border: 1px solid #3c3c3c;
+}
+
+.widget.green {
+	background-color: var(--accent);
+}
+
+.widget.dark {
+	background-color: var(--dark);
+}
+
+.widget:focus,
+.widget:hover {
+	transform: scale(1.02);
+	text-decoration: none;
+}
+
+/* Widget title */
+.widget h3 {
+	margin: 0;
+	display: inline-block;
+	background-color: var(--white);
+	border-radius: 50px;
+	color: var(--dark);
+	padding: 0 0.7rem;
+}
+
+/* Small modif for the word widget title only */
+#word-widget-title {
+	margin-bottom: 1rem;
+}
+
+.kanji-widget {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	gap: 1.5rem;
+	font-size: 1.1rem;
+}
+
+.kanji-widget > span:first-of-type {
+	font-size: 6rem;
+	margin: 0;
+}
+
+.kanji-reading {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+.word-widget {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	gap: 1.5rem;
+	font-size: 1.1rem;
+}
+
+/* Word widget vocab */
+.word-widget ruby {
+	font-size: 3rem;
+	line-height: 1.2;
+}
+
+/* Word widget furigana */
+.word-widget rt {
+	font-size: 1rem;
+	color: var(--light-grey);
+}
+
+.vocab-type {
+	font-weight: bold;
+	color: var(--light-grey);
+}
+
+.vocab-meaning-list {
+	margin: 0;
+}
+
+/* --- CSS for the page with the sidebar --- */
+
+.page-with-sidebar {
+	display: grid;
+	grid-template-columns: 250px 1fr;
+	gap: 2rem;
+    /* Add some space below breadcrumbs/header */
+	margin-top: 2rem;
+}
+
+/* Adjust for mobile */
+@media (max-width: 992px) {
+	.page-with-sidebar {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* FAB for sidebar on mobile */
+.fab-sidebar-button {
+    /* Hidden by default, shown on mobile only */
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+    /* Below main hamburger menu,  above most content */
+	z-index: 999;
+	background-color: var(--accent);
+	border: none;
+	border-radius: 50%;
+	width: 56px;
+	height: 56px;
+	cursor: pointer;
+	transition: transform 0.2s ease-out, background-color 0.2s;
+}
+
+.fab-sidebar-button:hover,
+.fab-sidebar-button:focus {
+	transform: scale(1.05);
+	background-color: var(--dark-acent);
+}
+
+.sidebar-icon {
+	width: 60%;
+	height: 60%;
+    /* This makes the svg white */
+	filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(71deg) brightness(105%) contrast(101%);
+}
+
+/* Sidebar, desktop defaults and resets bcs a lot of css trickery happens with media queries further down */
+.contextual-sidebar {
+	position: sticky;
+    /* Stick below the header area */
+	top: calc(var(--header-height) + 5rem);
+	left: auto;
+	bottom: 0;
+	align-self: start;
+	width: auto;
+	height: auto;
+	max-height: calc(100vh - var(--header-height) - 8rem);
+    /* Allow overflow */
+	overflow-y: auto;
+	transform: none;
+	visibility: visible;
+	background-color: transparent;
+	padding: 0 2rem;
+	z-index: auto;
+}
+
+/* Sidebar nav headers */
+.sidebar-nav h2 {
+	font-size: 1.2rem;
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+/* Sidebar nav list */
+.sidebar-nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* Sidebar nav list items */
+.sidebar-nav li {
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+}
+
+.sidebar-nav .submenu {
+	margin-top: -0.5rem;
+}
+
+/* More specific selector for second level list items only */
+.sidebar-nav .submenu li {
+	margin-left: 0.5rem;
+	margin-bottom: 0;
+	font-weight: 400;
+}
+
+/* Sidebar nav link */
+.sidebar-nav a {
+	text-decoration: none;
+	color: var(--dark-grey);
+	display: block;
+	padding: 0.5rem 1rem;
+	transform: translateX(0);
+	transition: transform 0.2s ease-in-out;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a:focus {
+    /* On hover color change */
+	color: var(--accent);
+	text-decoration: underline;
+	background-color: rgba(0,0,0,0.05);
+	transform: translateX(4px);
+}
+
+/* Hides the sidebar on mobile and spawn the FAB (floating action button btw) */
+@media (max-width: 992px) {
+    /* Shows FAB */
+	.fab-sidebar-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+    /* This styles the sidebar for mobile, it is hidden by default and is controlled b the FAB */
+	.contextual-sidebar {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		top: 0;
+		width: 280px;
+		max-width: 80vw;
+		height: 100vh;
+		max-height: none;
+		background-color: var(--white);
+		padding: calc(var(--header-height) + 3rem) 2rem;
+		overflow-y: auto;
+		z-index: 998;
+        /* Outside the page until active */
+		transform: translateX(-105%);
+		transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        /* Hidden by default on mobile */
+		visibility: hidden;
+	}
+
+    /* Class for when it is open, lil transition */
+	.contextual-sidebar.sidebar-open {
+		transform: translateX(0);
+		visibility: visible;
+	}
+
+    /* When FAB is active, change it's color */
+    .fab-sidebar-button.fab-active {
+        background-color: var(--grey);
+    }
+
+    /* Changes SGV icon color by removing filter */
+    .fab-sidebar-button.fab-active .sidebar-icon {
+        filter: none;
+    }
+
+    /* Changes stuff for mobile */
+    .sidebar-nav h2 {
+        font-size: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 1rem;
+    }
+}
+
+/* --- CSS for the accordion in the resources page --- */
+
+.accordion-container {
+    margin: 20px auto;
+}
+
+.accordion-item h3 {
+    margin: 0; 
+    font-size: 1.1em; 
+}
+
+.accordion-trigger {
+    color: var(--dark-grey);
+    cursor: pointer;
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+    /* Separator between triggers */
+    border-bottom: 1px solid var(--dark-grey);
+    text-align: left;
+    font-size: inherit;
+    font-weight: bold;
+    display: block;
+    background-color: transparent;
+}
+/* No bottom border for the last trigger if panel is closed */
+.accordion-item:last-child .accordion-trigger {
+    border-bottom: none;
+}
+/* Add back border if panel is open */
+.accordion-item:last-child .accordion-trigger[aria-expanded="true"] {
+    border-bottom: 1px solid var(--dark-grey); 
+}
+
+
+.accordion-trigger:hover,
+.accordion-trigger:focus {
+    background-color: #0000000c;
+}
+
+/* Little arrow to show when open/closed */
+.accordion-trigger::before {
+    content: '> '; /* Right-pointing triangle */
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 0.8em;
+    transition: transform 0.2s ease-in-out;
+}
+
+.accordion-trigger[aria-expanded="true"]::before {
+    /* Rotate the arrow */
+    transform: rotate(90deg); 
+}
+
+.accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1rem;
+    transition: all 0.3s ease-in-out; 
+    border-bottom: none;
+}
+.accordion-panel.is-open {
+    border-bottom: 1px solid var(--dark-grey);
+}
+
+/* No bottom border for the last panel */
+.accordion-item:last-child .accordion-panel {
+    border-bottom: none;
+}
+
+/* --- CSS for single blog post --- */
+
+.blog-post {
+    border-radius: 10px;
+    background-color: var(--white);
+    padding: 2.5rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: -150px;
+    /* This ensures the post image clip-mask does not clips the top of the post as well */
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 992px) {
+    .blog-post {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+/* Just general post CSS */
+.post-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--grey);
+}
+
+#post-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: var(--medium-grey);
+    margin-top: 0;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.3;
+}
+
+.post-content h2 { 
+    font-size: 1.8rem; 
+}
+
+.post-content h3 { 
+    font-size: 1.5rem; 
+}
+
+.post-content p {
+    margin-bottom: 1em;
+}
+
+.post-content ul,
+.post-content ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+}
+
+.post-content li {
+    margin-bottom: 0.5em;
+}
+
+.post-content blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 1rem;
+    /* Override default browser margin */
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-style: italic;
+    color: var(--dark-grey);
+}
+
+.post-content .glossary a {
+	color: var(--dark);
+}
+
+/* --- CSS specific to the About page --- */
+
+/* About Me Section */
+.about-me-photo {
+    width: 800px;
+    height: auto;        
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 1rem solid var(--dark-grey);  
+	margin-bottom: 1rem;
+}
+
+@media (max-width: 992px) {
+    .about-me-photo {
+        width: 100%;
+    }
+}
+
+/* Learning progress widgets */
+.progress-widgets-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.progress-widget {
+    background-color: var(--green);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #ffffffa1;
+}
+
+.progress-widget.grey {
+    background-color: var(--grey);
+}
+
+.progress-widget h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--dark);
+    font-size: 1.25rem;
+}
+
+.progress-status {
+    font-size: 0.95rem;
+    color: var(--dark-grey);
+    margin-bottom: 0.5rem;
+}
+
+.progress-status strong {
+    color: var(--dark);
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: var(--light-grey);
+    border-radius: 25px;
+    height: 25px; 
+    overflow: hidden; 
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc; 
+}
+
+/* Progress bar width is changed directly in the HTML */
+.progress-bar {
+    height: 100%;
+    background-color: var(--accent); 
+    border-radius: 25px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.progress-widget.grey .progress-bar {
+    background-color: var(--dark);
+}
+
+.progress-bar-text {
+    padding: 0 10px; 
+}
+
+.progress-note {
+    font-size: 0.85rem;
+    color: var(--dark-grey);
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+}
+
+/* Contact me section */
+/* First paragraph of the form */
+.contact-form-container > p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark-grey);
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--light-grey);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: var(--white);
+    color: var(--dark);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    /* Highlight with accent color on focus... */
+    border-color: var(--accent);
+    /* and adds a nice glow */
+    box-shadow: 0 0 0 2px rgba(52, 77, 55, 0.2); 
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--medium-grey);
+    /* Ensure placeholder is visible */
+    opacity: 1; 
+}
+
+.form-group textarea {
+    /* Allow vertical resizing, not horizontal */
+    resize: vertical; 
+    min-height: 120px;
+}
+
+.form-submit-group {
+    /* Aligns button to the left */
+    align-items: flex-start;
+    /* Some extra space before the button */
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Adjust button placement for mobile */
+@media (max-width: 992px) {
+    .form-submit-group {
+        /* Aligns button to the left */
+        align-items: center;
+    }
+}
+
+/* CSS for the 404 and redirect page */
+.big-header {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 10rem;
+    margin: 0;
+    margin-top: 5rem;
+    line-height: 10rem;
+}
+.big-header.not-as-big {
+    font-size: 5rem;
+    line-height: 5rem;
+}
+
+
+/* --- Utility, other universal components, etc --- */
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Add margin to images within post content */
+.content-image {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+}
+
+/* Adds a max height for banners */
+.banner-image {
+    max-height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Post image */
+.post-image {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    /* Fade bottom */
+    -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+}
+
+/* Universal box-shadow class */
+.box-shadow {
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Lil button */
+.button {
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    color: #ffffff;
+
+    /* For animation purposes, buttons will have its own box-shadow instead of getting the box-shadow class */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+}
+.button.accent {
+    background-color: var(--accent);
+}
+.button.grey {
+    background-color: var(--dark-grey);
+}
+.button:hover,
+.button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px); 
+}
+.button.accent:hover,
+.button.accent:focus {
+    background-color: var(--dark-acent);
+}
+.button.grey:hover,
+.button.grey:focus {
+    background-color: var(--dark);
+}
+.button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* CSS for videos, so it is always in a decent aspect and covers 100% of the width of the parent */
+.video-container {
+	width: 100%; /* Or any specific width you want for the container */
+}
+
+.youtube-video {
+width: 100%;
+aspect-ratio: 16 / 9;
+}
+
+/* This just gives a cute, card-like style to a div */
+.background-wrapper {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 0.5rem 2rem;
+    border: 1px solid #ffffffa1;
+}
+
+.background-wrapper.green {
+    background-color: var(--green);
+}
+
+.background-wrapper.violet {
+    background-color: var(--violet);
+}
+
+.background-wrapper.yellow {
+    background-color: var(--yellow);
+}
+
+.background-wrapper.grey {
+    background-color: var(--grey);
+}
+
+/* --- CSS for the tables --- */
+.table-scroll-wrapper {
+    overflow-x: auto; 
+    width: 100%;  
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.comparison-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+	border: 1px solid var(--grey);
+	padding: 8px;
+	text-align: left;
+}
+
+.comparison-table th {
+	background-color: var(--dark);
+	color: var(--white);
+}
+
+.comparison-table tbody tr:nth-child(odd) {
+	background-color: var(--light);
+}
+
+.comparison-table tbody tr:nth-child(even) {
+	background-color: var(--light-grey);
+}

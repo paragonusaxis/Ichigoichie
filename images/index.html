@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Page head elements... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Ichigoichie - Redirect</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+    
+</head>
+
+<body>
+    <!-- Site header -->
+<header class="site-header" id="site-header">
+
+    <div class="container header-content">
+
+        <!-- This allows users to tab into this hidden element when arriving into the page, because its focusable. This can be used to allow the user to skip to the main content directly and it is a form of assistive tool. -->
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        
+        <!-- Site title -->
+        <div class="site-title"><a href="./index.html">一期一会</a></div>
+
+        <!-- Hamburger menu for mobile-->
+        <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation-list">
+            <span class="hamburger-icon"></span>
+        </button>
+
+        <!-- Nav menu, collapses on mobile -->
+        <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+            <ul class="nav-list" id="main-navigation-list">
+                <li><a href="./index.html" aria-current="page">Home</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./resources.html">Resources</a></li>
+                <li><a href="./roadmap.html">Roadmap</a></li>
+                <li><a href="./about.html">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Main content container -->
+    <div class="container main">
+        <!-- Breadcrumbs navigation / fil d'ariane -->
+<nav aria-label="Breadcrumb" class="breadcrumbs">
+    <ol>
+        <li><a href="./index.html">Home</a></li>
+    </ol>
+</nav>
+
+        <!-- Main content -->
+        <main id="main-content">
+            
+    <!-- redirect page for when the users access an area they are not supposed to -->
+    <div class="flex-center">
+        <h1 class="big-header not-as-big">止めてください</h1>
+        <p>I don't think you have the right to be here... You will be automatically redirected to the <a href="./index.html">landing page.</a></p>
+    </div>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <p>© 2025 Ichigoichie. All rights reserved.</p>
+    </div>
+</footer> 
+
+    <!-- Script(s), etc -->
+    <script src="./static/js/script.js"></script>
+    
+<!-- Tiny redirect script for this page only -->
+<script type="text/javascript">
+    setTimeout(function() {
+        window.location.href = "./index.html";
+    }, 3000);
+</script>
+
+</body>
+</html>

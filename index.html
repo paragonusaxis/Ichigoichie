@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Page head elements... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Ichigoichie - Home</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Site header -->
+    <header class="site-header" id="site-header">
+
+        <div class="container header-content">
+
+            <!-- This allows users to tab into this hidden element when arriving into the page, because its focusable. This can be used to allow the user to skip to the main content directly and it is a form of assistive tool. -->
+            <a href="#main-content" class="skip-link">Skip to main content</a>
+
+            <!-- Site title -->
+            <div class="site-title"><a href="#">一期一会</a></div>
+
+            <!-- Hamburger menu for mobile-->
+            <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation-list">
+                <span class="hamburger-icon"></span>
+            </button>
+
+            <!-- Nav menu, collapses on mobile -->
+            <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+                <ul class="nav-list" id="main-navigation-list">
+                    <li><a href="#" aria-current="page">Home</a></li>
+                    <li><a href="./pages/posts/index.html">Blog</a></li>
+                    <li><a href="./pages/resources.html">Resources</a></li>
+                    <li><a href="./pages/roadmap.html">Roadmap</a></li>
+                    <li><a href="./pages/about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Landing header -->
+    <div class="landing-banner">
+        <img class="landing-banner-image" src="./images/landing.jpg" alt="Summer landscape by Image by hok from Pixabay">
+
+        <div class="landing-title-heading">
+            <h1>Welcome to Ichigoichie</h1>
+            <p>Your mini-blog for japanese learning</p>
+        </div>
+
+        <div class="landing-jp-accent">
+            <p>千里の道も一歩から</p>
+        </div>
+    </div>
+
+    <!-- Main content container -->
+    <div class="container">
+
+        <!-- Main content -->
+        <main id="main-content">
+
+            <!-- Blog feed section -->
+            <section aria-labelledby="blog-feed-title">
+                <h2 id="blog-feed-title">Recent Posts</h2>
+
+                <div class="blog-feed landing">
+                    <!-- blog posts cards -->
+                    <article>
+                        <a href="./pages/posts/immersion.html" class="card box-shadow">
+                            <img src="./images/immersion.jpg" alt="nime-style man overlooking a snowy landscape" class="card-image">
+
+                            <div class="card-content">
+                                <div>
+                                    <h3 class="card-title">Immersion that Matters</h3>
+                                    <p class="card-meta">Published on
+                                        <time datetime="2025-05-31">May 31, 2025</time>
+                                    </p>
+                                    <p>Exploring different paths to Japanese immersion, from structured beginner content to diving into personal interests, and why the best method is the one that keeps you engaged.</p>
+                                </div>
+
+                                <span class="card-read">Read More</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article>
+                        <a href="./pages/posts/aonosumika.html" class="card box-shadow">
+                            <img src="./images/aonosumika.jpg" alt="blog post image" class="card-image">
+
+                            <div class="card-content">
+                                <div>
+                                    <h3 class="card-title">A Beginner's Take on Tatsuya Kitani's "Ao no Sumika"</h3>
+                                    <p class="card-meta">Published on
+                                        <time datetime="2025-05-01">May 31, 2025</time>
+                                    </p>
+                                    <p>Let's explore Tatsuya Kitani's "Ao no Sumika," the lyrics, grammar, and emotional depth of this Jujutsu Kaisen ending theme.</p>
+                                </div>
+
+                                <span class="card-read">Read More</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article>
+                        <a href="./pages/posts/wanikani-experience.html" class="card box-shadow">
+                            <img src="./images/wanikani-experience.jpg" alt="Photo of Japanese Kanji characters" class="card-image">
+
+                            <div class="card-content">
+                                <div>
+                                    <h3 class="card-title">WaniKani: My Personal Experience</h3>
+                                    <p class="card-meta">Published on
+                                        <time datetime="2025-05-28">May 28, 2025</time>
+                                    </p>
+                                    <p>Sharing my journey with WaniKani: how this popular tool is helping me tackle the intimidating world of kanji and making my Japanese studies feel more rewarding.</p>
+                                </div>
+
+                                <span class="card-read">Read More</span>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+
+                <div class="blog-more">
+                    <a class="button accent" href="./pages/posts/index.html">More posts</a>
+                </div>
+
+            </section>
+
+            <section aria-labelledby="about-section-title">
+                <h2 id="about-section-title">About Ichigoichie</h2>
+                <div class="two-columns">
+                    <div class="background-wrapper box-shadow">
+                        <p>Welcome to Ichigoichie (一期一会)! This Japanese phrase reminds us to treasure every unique encounter. This mini-blog is all about my personal journey learning the Japanese language.</p>
+
+                        <p>Here, I share resources I find helpful, my progress, and the challenges I face along the way. It's a space for fellow learners looking for a relatable and practical approach to Japanese.</p>
+                        
+                        <p>Want to know more about why this site exists and what I hope to achieve? <a href="./pages/about.html">Read more about the project.</a></p>
+                    </div>
+
+                    <div class="flex-center">
+                        <a href="https://jisho.org/search/%E9%83%A8%20%23kanji" class="widget green box-shadow" target="_blank">
+                            <h3>Kanji of the day</h3>
+                            <div class="kanji-widget">
+                                <span>部</span>
+                                <div>
+                                    <p>section, bureau, dept, class, copy, part, portion, counter for copies of a newspaper or magazine</p>
+                                    <span class="kanji-reading">
+                                    <span><strong>Kun:</strong> -べ</span>
+                                    <span><strong>On:</strong> ブ</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="https://jisho.org/word/%E9%83%A8%E5%88%86" class="widget dark box-shadow" target="_blank">
+                            <h3 id="word-widget-title">Word of the day</h3>
+                            <div class="word-widget">
+                                <span>
+                                <!-- standard html for furigana -->
+                                <ruby>
+                                    部<rp>(</rp><rt>ぶ</rt><rp>)</rp>
+                                    分<rp>(</rp><rt>ぶん</rt><rp>)</rp>
+                                </ruby>
+                            </span>
+                                <div>
+                                    <span class="vocab-type">
+                                    Noun
+                                </span>
+
+                                    <ol class="vocab-meaning-list">
+                                        <li>portion; section; part​</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                May 2025 / Ichigoichie.
+                <br>
+                This site was created by Rocco Cavenaghi for the "Publication Web" course at HEG-Genève, as a project to learn web development. Taught by Professor Alexandre Boder with assistance from Adrian Valente. For full credits and references, see the <a href="./pages/about.html">about page</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script(s), etc -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
